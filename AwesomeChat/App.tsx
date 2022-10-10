@@ -25,17 +25,15 @@ import '@react-native-firebase/auth';
 import '@react-native-firebase/firestore';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Loginscreen from './components/loginscreen'
-
-
-const auth = Firebase.auth();
-const firestore = Firebase.firestore();
+import Loginscreen from './components/screens/loginscreen'
+import Chatroom from './components/screens/chatroom';
 
 
 const App = () => {
 
   //Uses react-navigation to navigate between screens
   const Stack = createNativeStackNavigator();
+
 
   useEffect( () =>{
     SplashScreen.hide()
@@ -46,6 +44,7 @@ return(
   <NavigationContainer>
     <Stack.Navigator>
       <Stack.Screen name ="Login" component={Loginscreen} />
+      <Stack.Screen name ="Chatroom" component={Chatroom} />
     </Stack.Navigator>
   </NavigationContainer>
 )

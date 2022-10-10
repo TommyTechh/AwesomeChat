@@ -9,22 +9,16 @@ import {
     View,
     Button,
   } from 'react-native';
-  
+import Googlesignin from '../backend/googlesignin';
 
 
-  export default function Loginscreen ({  }){
+
+export default function Chatroom ({  }){
     return(
     <View>
-        <Button title='Click me' />
+        <Text>Swag</Text>
     </View>
 
     )
 
   };
-  
-
-
-
-
-
-
