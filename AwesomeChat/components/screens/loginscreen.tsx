@@ -11,18 +11,44 @@ import {
   } from 'react-native';
 import Googlesignin from '../backend/googlesignin';
 
+
   
 
 
   export default function Loginscreen ({  }){
     return(
+     <View style={styles.container}>
     <View>
+      <Text style ={styles.text}>
+         AwesomeChat 
+         </Text>
+    </View>
+    <View style={styles.buttons}>
         <Googlesignin  />
     </View>
-
+    </View>
     )
 
   };
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: 'white',
+      alignItems: 'center',
+    },
+
+    text:  {
+      marginTop: '10%',
+      color: '#D41D1D',
+      fontFamily:'gustavo_regular',
+      fontSize: 53,
+    },
+
+    buttons: {
+      marginVertical: '50%'
+    }
+  })
   
 
 
