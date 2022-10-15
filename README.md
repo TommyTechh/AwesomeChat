@@ -21,6 +21,7 @@ Missing elements:
 
 Generel:
 Error-handling
+Use of type-script
 
 Loginscreen:
 Facebook login
@@ -40,7 +41,7 @@ Nothing is implemented
 Reasoning for missing functionality:
 Sadly i did not have enough time to implement everything within the timeframe that i initially set for myself. I ended up getting sick for a few days where i wanted to spend most of the day on the project and then i had to do school related work on top of this assignment and also volunteer work.
 
-Furthermore, there was alot of the things i needed to learn which has been great. I now understand how to query in firestore and how firebase auth works. I've also learned more about configuring for android specifically.
+Furthermore, there was alot of the things i needed to learn which has been great. I now understand how to query in firestore and how firebase auth works. I've also learned more about configuring for android specifically. So overall a really awesome exercise.
 
 Dependencies used:
 react-native-splash-screen
