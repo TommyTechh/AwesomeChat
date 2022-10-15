@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
-import { FlatList, SafeAreaView, SectionList } from "react-native";
+import { FlatList, SafeAreaView} from "react-native";
 import SignoutButton from '../backend/signoutbutton'
 import auth from '@react-native-firebase/auth'
 
