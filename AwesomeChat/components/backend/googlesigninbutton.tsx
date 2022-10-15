@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Button, StyleSheet } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
-import { useNavigation } from '@react-navigation/core';
+
 
 //Initializes google sdk
 GoogleSignin.configure({
@@ -10,25 +9,7 @@ GoogleSignin.configure({
   });
 
 
-//Navigates to chatroom screen if user is logged in
-function checkUserStatus(){
-  const navigation = useNavigation()
-
-useEffect(() => {
-  const subscriber = auth().onAuthStateChanged(user => {
-     if(user){
-      navigation.navigate("Chatroom")
-     }
-     
-  });
-    return subscriber;
-  }, []);
-
-}
-
 export default function GoogleSignIn() {
-
-  checkUserStatus()
   
   //Used to disable button when logging in
   const [loading, setLoading] = useState(false)
@@ -56,3 +37,4 @@ export default function GoogleSignIn() {
   />
   );
 }
+
