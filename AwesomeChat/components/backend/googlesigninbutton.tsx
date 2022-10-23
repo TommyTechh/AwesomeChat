@@ -27,6 +27,8 @@ export default function GoogleSignIn() {
   setLoading(false)
   return auth().signInWithCredential(googleCredential);
 }
+
+  //returns google's default sign-in button
   return (
     <GoogleSigninButton
       style={{ width: 192, height: 48 }}

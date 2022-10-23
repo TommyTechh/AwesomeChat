@@ -7,6 +7,7 @@ const Chat = ({chat}) => {
     const {owner} = chat;
     const currentUser = auth().currentUser.uid;
   
+    //Checks if message is yours or not.
     return owner === currentUser ? (
       <Sent chat={chat} />
     ) : (
@@ -14,6 +15,8 @@ const Chat = ({chat}) => {
     );
   };
 
+
+  //Style for received messages
   const Received = ({chat}) => {
     const {id, imageUrl, text} = chat;
   
@@ -27,13 +30,10 @@ const Chat = ({chat}) => {
     );
   };
   
+  //Style for sent messages
   const Sent = ({chat}) => {
   
     const {id, imageUrl, text} = chat;
-  
-    const handleDelete = async () => {
-      await firestore().collection('chats').doc(id).delete();
-    };
   
     return (
       <View style={styles.rowStyleSent}>
@@ -49,19 +49,27 @@ const Chat = ({chat}) => {
 
   const styles = StyleSheet.create({
     rowStyleReceived: {
-      width: '50%',
+      width: '90%',
+      marginTop: '2%',
       marginRight: 'auto',
       flexDirection: 'row',
     },
     textReceived: {
-      fontSize: 15,
+      padding: 0,
+      fontSize: 18,
+      maxWidth: '100%',
+      letterSpacing: 0,
+      textAlign: 'left',
       color: 'black',
     },
     imageReceived: {
-      width: '50%',
+      width: 45,
       height: 45,
-      marginRight: '2%',
+      marginLeft: '2%',
+      marginRight: 4,
       borderRadius: 50,
+      alignItems: 'center',
+      justifyContent: 'center'
     },
     textbgReceived: {
       padding: 4,
@@ -69,7 +77,6 @@ const Chat = ({chat}) => {
       marginRight: 'auto',
       alignItems: 'center',
       flexDirection: 'row',
-
       backgroundColor: '#1dd4d4',
     },
     rowStyleSent: {
@@ -81,30 +88,26 @@ const Chat = ({chat}) => {
     textSent: {
       padding: 0,
       fontSize: 18,
-      maxWidth: '80%',
+      maxWidth: '90%',
       letterSpacing: 0,
-      fontWeight: '600',
       textAlign: 'right',
       color: 'black',
     },
     imageSent: {
       width: 45,
       height: 45,
-      marginLeft: 4,
-      marginRight: 0,
+      marginLeft: 5,
+      marginRight: '2%',
       borderRadius: 50,
       alignItems: 'center',
       justifyContent: 'center',
     },
     textbgSent: {
-      height: 'auto',
-      maxWidth: '100%',
-      marginRight: 0,
-      marginLeft: 'auto',
+      padding: 4,
       borderRadius: 4,
-      flexDirection: 'row',
+      marginLeft: 'auto',
       alignItems: 'center',
-      justifyContent: 'flex-end',
+      flexDirection: 'row',
       backgroundColor: '#D41D1D',
     },
   })

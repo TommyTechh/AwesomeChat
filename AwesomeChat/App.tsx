@@ -20,7 +20,7 @@ const App = () => {
 
 
   useEffect( () =>{
-    SplashScreen.hide()
+    SplashScreen.hide()  //Hides splashscreen 
     const unsubscribe = auth().onAuthStateChanged(user => {
       user ? setUser(user) : setUser(null);
     });
@@ -33,7 +33,7 @@ const App = () => {
 return(
   <NavigationContainer>
     <Stack.Navigator>
-      {user ? 
+      {user ?  //Shows Login screen if user isn't logged in else it shows chatrooms
       <Stack.Screen name ="Chatrooms" component={Chatrooms} /> 
       : 
       <Stack.Screen name ="Login" component={Loginscreen} /> }

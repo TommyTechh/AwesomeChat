@@ -2,12 +2,17 @@
 
 This is the repository for the Pentia exercise.
 
+Start project with npx react-native run-android
+Requires available emulator or android phone to run
+
 Color: #D41D1D
 FONT: GUSTAVO
 
 Only tested on android.
 
-Estimated time spent as of this commit:
+Estimated time: 
+
+Last commit before deadline: c1ce55cd4477171ce8d6909350f39ee1dea82c27 
 
 Splashscreen - 2 hours
 Loginscreen, firestore + google auth - 2 hours

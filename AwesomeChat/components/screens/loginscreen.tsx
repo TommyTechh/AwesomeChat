@@ -14,7 +14,7 @@ import Googlesignin from '../backend/googlesigninbutton';
 
   
 
-
+ //Shows googlesignin button
   export default function Loginscreen ({  }){
     return(
      <View style={styles.container}>

@@ -2,6 +2,8 @@ import React from 'react';
 import {StyleSheet, TextInput} from 'react-native';
 
 const Input = ({text, setText}) => {
+
+  //Text input to type messages
   return (
     <TextInput
       value={text}

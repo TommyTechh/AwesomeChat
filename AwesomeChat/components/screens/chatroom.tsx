@@ -13,12 +13,20 @@ import SendButton from '../backend/sendbutton';
 
 
 export default function Chatroom ({route}) {
-  const [text, setText] = useState('');                      // Input text
-  const [chats, setChats] = useState([]);                    // Chat messages
-  const timestamp = firestore.FieldValue.serverTimestamp();  // Firestore timestamp
+  //Input text
+  const [text, setText] = useState('');            
+  //Chat messages          
+  const [chats, setChats] = useState([]);           
+  //Firestore timestamp         
+  const timestamp = firestore.FieldValue.serverTimestamp();  
+  //Takes parameters from chosen chatroom to query in firestore 
+  //eg. chatroom1 passes the string parameter chatroom1
   const chatroomId = route.params.item;
+  //current loggedin user instance
   const user = auth().currentUser;
+  // Current user id
   let userID;
+  // Current user photo
   let photoURL;
   
 
@@ -32,9 +40,8 @@ export default function Chatroom ({route}) {
   
   
   
-  
+  //sets user data and sends message to firestore if conditions are met
   const sendMessage = async e => {
-        
     checkUser()
     if (text.length >= 1) {
       try{
@@ -59,16 +66,16 @@ export default function Chatroom ({route}) {
   useEffect(() => {
     const unsubscribe = firestore()
       .collection(chatroomId) 
-      .orderBy('createdAt')    //sorted by createdAt
+      .orderBy('createdAt') //sorted by createdAt
       .limitToLast(50) //last 50 messages              
       .onSnapshot(querySnapshot => {
-        const chatsArr = [];
-        querySnapshot.forEach(doc => {
-          const id = doc.id;
+        const chatsArray = [];
+        querySnapshot.forEach(doc => { //Puts all documents in the firestore collection into the chats array
+          const id = doc.id;  
           const data = doc.data();
-          chatsArr.push({id, ...data});
+          chatsArray.push({id, ...data});
         });
-        setChats(chatsArr);
+        setChats(chatsArray);
       });
 
     return () => {
@@ -96,7 +103,6 @@ export default function Chatroom ({route}) {
 
 const styles = StyleSheet.create({
   chatStyle: {
-    
     height: '90%',
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -117,24 +123,5 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#1d1b1b',
 
-  },
-  text: {
-    fontWeight: '600',
-    fontSize: 20,
-    color: '#030303',
-    marginRight: 'auto',
-    marginLeft: 8,
-    padding: 4,
-  },
-  textContainer: {
-    flexDirection: 'row',
-    height: 60,
-    width: '100%',
-    margin: 0,
-    padding: 8,
-    elevation: 6,
-    backgroundColor: '#ffa600',
-    alignItems: 'center',
-    justifyContent: 'space-between',
   },
 });

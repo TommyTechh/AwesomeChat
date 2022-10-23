@@ -2,6 +2,8 @@ import React from 'react';
 import {StyleSheet, TouchableOpacity, Text} from 'react-native';
 
 const SendButton = ({handleChat}) => {
+
+  //Button that sends message to firestore
   return (
     <TouchableOpacity onPress={handleChat} style={styles.button}>
       <Text>Send</Text>

@@ -3,6 +3,8 @@ import {StyleSheet, TouchableOpacity, Text} from 'react-native';
 
 
 const SignoutButton = ({handleSignOut}) => {
+
+  //Signout button
     return (
       <TouchableOpacity onPress={handleSignOut} style={styles.button}>
         <Text style={styles.text}>Sign out</Text>
